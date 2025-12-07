@@ -32,42 +32,6 @@ impl Operations {
     }
 }
 
-/*
-fn read_input<'a>(
-    mut lines: Peekable<impl Iterator<Item = &'a str>>,
-) -> (
-    impl Iterator<Item = impl Iterator<Item = u64>>,
-    impl Iterator<Item = Operations>,
-) {
-    if let Some(cur) = lines.next() {
-        if lines.peek().is_none() {
-            (
-                iter::empty(),
-                cur.split_whitespace().map(|op| {
-                    if op == "+" {
-                        Operations::Add
-                    } else {
-                        Operations::Mul
-                    }
-                }),
-            )
-        } else {
-            let (prev, ops) = read_input(lines);
-
-            let cur_values = cur
-                .split_whitespace()
-                .map(|val| val.parse::<u64>().expect("Not a Number"));
-
-            (prev.zip(cur_values)
-                .map(|(values, val)| iter::once(val).chain(values)),
-            ops)
-        }
-    } else {
-        (iter::empty(), iter::empty())
-    }
-}
-*/
-
 fn resolve_part_one(input: &str) {
     let mut lines = input
         .trim()
